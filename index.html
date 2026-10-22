@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>My Todo App</title>
+    <link rel="stylesheet" href="todo.css" />
+    <script src="script.js" defer></script>
+  </head>
+
+  <body>
+    <main class="container">
+      <!-- HEADER -->
+      <header class="app-header">
+        <p class="eyebrow">YOUR PERSONAL PLANNER</p>
+        <h1>My Todo List <span>✦</span></h1>
+        <p class="subtitle">Small steps, big achievements.</p>
+      </header>
+
+      <!-- TASK SUMMARY -->
+      <section class="task-summary" aria-label="Task summary">
+        <div class="summary-card">
+          <p class="summary-label">Total tasks</p>
+          <h2 id="total-tasks">0</h2>
+        </div>
+
+        <div class="summary-card">
+          <p class="summary-label">Completed</p>
+          <h2 id="completed-tasks">0</h2>
+        </div>
+
+        <div class="summary-card">
+          <p class="summary-label">Remaining</p>
+          <h2 id="remaining-tasks">0</h2>
+        </div>
+      </section>
+
+      <!-- TASK PROGRESS -->
+      <section class="progress-section" aria-label="Task completion progress">
+        <div class="progress-heading">
+          <h2>My Progress</h2>
+          <span id="progress-percentage">0%</span>
+        </div>
+
+        <div
+          class="progress-track"
+          id="progress-track"
+          role="progressbar"
+          aria-label="Tasks completed"
+          aria-valuemin="0"
+          aria-valuemax="100"
+          aria-valuenow="0"
+        >
+          <div class="progress-fill" id="progress-fill"></div>
+        </div>
+
+        <p id="progress-message">Let's complete your first task! 💪</p>
+      </section>
+
+      <!-- TASK SECTION -->
+      <section class="task-section">
+        <h2 class="section-title">What's on your list?</h2>
+
+        <!-- ADD TASK FORM -->
+        <form id="task-form" class="input-box">
+          <input
+            type="text"
+            id="taskinput"
+            placeholder="e.g. Finish my coding project..."
+            autocomplete="off"
+            maxlength="200"
+            aria-label="Enter a new task"
+          />
+
+          <!-- TASK PRIORITY -->
+          <select id="task-priority" aria-label="Choose task priority">
+            <option value="high">🔴 High Priority</option>
+            <option value="medium" selected>🟡 Medium Priority</option>
+            <option value="low">🟢 Low Priority</option>
+          </select>
+
+          <!-- TASK DUE DATE -->
+          <input
+            type="date"
+            id="task-due-date"
+            aria-label="Choose task due date"
+          />
+
+          <button id="adddBn" type="submit">+ Add Task</button>
+        </form>
+
+        <!-- TASK SEARCH -->
+        <div class="search-box">
+          <input
+            type="search"
+            id="task-search"
+            placeholder="🔎 Search your tasks..."
+            aria-label="Search tasks"
+            autocomplete="off"
+          />
+        </div>
+
+        <!-- TASK FILTERS -->
+        <div class="task-filters" role="group" aria-label="Filter tasks">
+          <button
+            type="button"
+            class="filter-btn active"
+            data-filter="all"
+            aria-pressed="true"
+          >
+            All
+          </button>
+
+          <button
+            type="button"
+            class="filter-btn"
+            data-filter="active"
+            aria-pressed="false"
+          >
+            Active
+          </button>
+
+          <button
+            type="button"
+            class="filter-btn"
+            data-filter="completed"
+            aria-pressed="false"
+          >
+            Completed
+          </button>
+        </div>
+
+        <!-- CLEAR COMPLETED BUTTON -->
+        <div class="clear-completed-container">
+          <button id="clear-completed-btn" type="button">
+            Clear Completed
+          </button>
+        </div>
+
+        <!-- TASK MESSAGE -->
+        <p id="task-message" class="task-message" aria-live="polite">
+          Your next achievement starts here.
+        </p>
+
+        <!-- TASK LIST -->
+        <ul id="task-list" aria-label="Your tasks"></ul>
+      </section>
+
+      <!-- FOOTER -->
+      <footer class="app-footer">
+        <p>Stay focused. Keep growing. ✨</p>
+      </footer>
+    </main>
+  </body>
+</html>
